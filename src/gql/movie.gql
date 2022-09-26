@@ -1,0 +1,10 @@
+type Movie {
+  id: Int!
+  title: String!
+  year: Int!
+  genre: [String!]
+}
+
+type Query {
+  getAllMovies: [Movie]
+}
