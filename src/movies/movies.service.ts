@@ -30,4 +30,16 @@ export class MoviesService {
       orderBy,
     });
   }
+
+  async create(
+    movieCreateInput: Prisma.MovieCreateInput,
+  ): Promise<Movie | null> {
+    return await this.prisma.movie.create({
+      data: {
+        title: movieCreateInput.title,
+        year: movieCreateInput.year,
+        genre: movieCreateInput.genre,
+      },
+    });
+  }
 }
