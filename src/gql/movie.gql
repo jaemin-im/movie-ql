@@ -18,4 +18,5 @@ type Query {
 
 type Mutation {
   createMovie(movie: CreateMovieInput): Movie
+  # createMovie(title: String!, year: Int!, genre: String): Movie
 }

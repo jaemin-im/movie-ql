@@ -34,6 +34,7 @@ export class MoviesService {
   async create(
     movieCreateInput: Prisma.MovieCreateInput,
   ): Promise<Movie | null> {
+    console.log(movieCreateInput);
     return await this.prisma.movie.create({
       data: {
         title: movieCreateInput.title,

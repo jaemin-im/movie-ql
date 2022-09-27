@@ -18,6 +18,7 @@ export class MoviesResolver {
 
   @Mutation(() => MovieDto)
   async createMovie(@Args('data') data: CreateMovieDto) {
+    console.log(data);
     return await this.moviesService.create(data);
   }
 }
