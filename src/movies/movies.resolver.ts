@@ -23,7 +23,7 @@ export class MoviesResolver {
     return await this.moviesService.create(data);
   }
 
-  @Mutation(() => Boolean)
+  @Mutation(() => Movie)
   async deleteMovie(@Args('id') id: number) {
     return await this.moviesService.delete({ id });
   }

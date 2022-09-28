@@ -16,7 +16,7 @@ type Query {
 
 type Mutation {
   createMovie(input: CreateMovieDto!): Movie!
-  deleteMovie(id: Float!): Boolean!
+  deleteMovie(id: Float!): Movie!
 }
 
 input CreateMovieDto {
