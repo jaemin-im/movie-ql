@@ -8,6 +8,6 @@ export class CreateMovieDto {
   @Field(() => Number)
   year: number;
 
-  @Field(() => String)
-  genre: string;
+  @Field(() => String, { nullable: true })
+  genre?: string;
 }

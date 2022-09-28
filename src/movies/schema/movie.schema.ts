@@ -2,8 +2,8 @@ import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class Movie {
-  @Field(() => Number, { nullable: true })
-  id?: number;
+  @Field(() => Number)
+  id: number;
 
   @Field(() => String)
   title: string;
@@ -11,6 +11,6 @@ export class Movie {
   @Field(() => Number)
   year: number;
 
-  @Field(() => String)
-  genre: string;
+  @Field(() => String, { nullable: true })
+  genre?: string;
 }

@@ -3,22 +3,24 @@
 # ------------------------------------------------------
 
 type Movie {
-  id: Float
+  id: Float!
   title: String!
   year: Float!
-  genre: String!
+  genre: String
 }
 
 type Query {
+  getMovie(id: Float!): Movie!
   getAllMovies: [Movie!]!
 }
 
 type Mutation {
   createMovie(input: CreateMovieDto!): Movie!
+  deleteMovie(id: Float!): Boolean!
 }
 
 input CreateMovieDto {
   title: String!
   year: Float!
-  genre: String!
+  genre: String
 }

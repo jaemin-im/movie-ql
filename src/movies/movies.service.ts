@@ -34,13 +34,31 @@ export class MoviesService {
   async create(
     movieCreateInput: Prisma.MovieCreateInput,
   ): Promise<Movie | null> {
-    console.log(movieCreateInput);
     return await this.prisma.movie.create({
       data: {
         title: movieCreateInput.title,
         year: movieCreateInput.year,
         genre: movieCreateInput.genre,
       },
+    });
+  }
+
+  async update(params: {
+    where: Prisma.MovieWhereUniqueInput;
+    data: Prisma.MovieUpdateInput;
+  }): Promise<Movie> {
+    const { where, data } = params;
+    return await this.prisma.movie.update({
+      data,
+      where,
+    });
+  }
+
+  async delete(
+    movieWhereUniqueInput: Prisma.MovieWhereUniqueInput,
+  ): Promise<Movie | null> {
+    return this.prisma.movie.delete({
+      where: movieWhereUniqueInput,
     });
   }
 }
