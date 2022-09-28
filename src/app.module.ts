@@ -10,7 +10,7 @@ import { PrismaService } from './prisma.service';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      typePaths: ['./**/*.gql'],
+      autoSchemaFile: './src/schema.gql',
     }),
     MoviesModule,
   ],

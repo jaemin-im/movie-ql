@@ -1,13 +1,13 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { CreateMovieDto } from './dto/create-movie.dto';
-import { MovieDto } from './dto/movie.dto';
+import { Movie } from './schema/movie.schema';
 import { MoviesService } from './movies.service';
 
-@Resolver('Movie')
+@Resolver(() => Movie)
 export class MoviesResolver {
   constructor(private moviesService: MoviesService) {}
 
-  @Query()
+  @Query(() => [Movie])
   async getAllMovies() {
     return await this.moviesService.getMany({});
     // return [
@@ -16,8 +16,8 @@ export class MoviesResolver {
     // ];
   }
 
-  @Mutation(() => MovieDto)
-  async createMovie(@Args('data') data: CreateMovieDto) {
+  @Mutation(() => Movie)
+  async createMovie(@Args('input') data: CreateMovieDto) {
     console.log(data);
     return await this.moviesService.create(data);
   }
